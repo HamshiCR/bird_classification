@@ -25,7 +25,8 @@ if uploaded_file:
     st.image(image, caption="Uploaded Bird Image", use_container_width=True)
     st.write("Analyzing... 🔍")
 
-    image_array = np.asarray(image.resize((260, 260))).astype(np.float32) / 255.0
+    # The exported ONNX model expects NCHW input with 224x224 pixels.
+    image_array = np.asarray(image.resize((224, 224))).astype(np.float32) / 255.0
 
     mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
     std = np.array([0.47853944, 0.4732864, 0.47434163], dtype=np.float32)
