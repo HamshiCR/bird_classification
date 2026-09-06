@@ -1,5 +1,5 @@
 streamlit
 Pillow
-transformers
-torch
-torchvision
+numpy
+onnxruntime
+huggingface_hub
